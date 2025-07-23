@@ -1,29 +1,29 @@
 ---
-title: ADB Cheat Sheet
-description: Cheat sheet for ADB. ADB, Android Debug Bridge, is a command-line utility for Android. ADB can control your device over USB from a computer, copy files back and forth, install and uninstall apps, run shell commands
+title: ADB Spickzettel
+description: Spickzettel für ADB. ADB, Android Debug Bridge, ist ein Befehlszeilen-Dienstprogramm für Android. ADB kann Ihr Gerät über USB von einem Computer aus steuern, Dateien hin- und herkopieren, Apps installieren und deinstallieren, Shell-Befehle ausführen.
 template: comments.html
 tags: [android, adb, cheat-sheet]
 ---
 
-# Android ADB Cheat Sheet
+# Android ADB Spickzettel
 
-ADB, Android Debug Bridge, is a command-line utility included with Google's Android SDK. ADB can control your device over USB from a computer, copy files back and forth, install and uninstall apps, run shell commands, and more. ADB is a powerful tool that can be used to control your Android device from a computer. Below are some of the most common commands you can use with ADB and their usage. You can find more information about ADB and its usage by visiting the [official website][adb-docs-url]{target=\_blank}.
+ADB, Android Debug Bridge, ist ein Befehlszeilen-Dienstprogramm, das im Android SDK von Google enthalten ist. ADB kann Ihr Gerät über USB von einem Computer aus steuern, Dateien hin- und herkopieren, Apps installieren und deinstallieren, Shell-Befehle ausführen und vieles mehr. ADB ist ein leistungsstarkes Werkzeug, das zur Steuerung Ihres Android-Geräts von einem Computer aus verwendet werden kann. Im Folgenden sind einige der gängigsten Befehle aufgeführt, die Sie mit ADB verwenden können, und deren Verwendung. Weitere Informationen zu ADB und seiner Verwendung finden Sie auf der [offiziellen Website][adb-docs-url]{target=\_blank}.
 
-## Common ADB Commands
+## Häufige ADB-Befehle
 
-### Push a file to Download folder of the Android Device
+### Eine Datei in den Download-Ordner des Android-Geräts verschieben
 
 ```bash
 adb push example.apk /mnt/sdcard/Download/
 ```
 
-### Lists all the installed packages and get the full paths
+### Listet alle installierten Pakete auf und gibt die vollständigen Pfade an
 
 ```bash
 adb shell pm list packages -f
 ```
 
-### Pulls a file from android device
+### Zieht eine Datei vom Android-Gerät
 
 ```bash
 adb pull /mnt/sdcard/Download/example.apk
@@ -31,13 +31,13 @@ adb pull /mnt/sdcard/Download/example.apk
 
 ---
 
-### Install apk from host to Android device
+### APK vom Host auf Android-Gerät installieren
 
 ```bash
 adb shell install example.apk
 ```
 
-### Install apk from Android device storage
+### APK aus dem Android-Gerätespeicher installieren
 
 ```bash
 adb shell install /mnt/sdcard/Download/example.apk
@@ -45,127 +45,127 @@ adb shell install /mnt/sdcard/Download/example.apk
 
 ---
 
-### Set network proxy
+### Netzwerk-Proxy einstellen
 
 ```bash
 adb shell settings put global http_proxy <address>:<port>
 ```
 
-Disable network proxy
+Netzwerk-Proxy deaktivieren
 
 ```bash
 adb shell settings put global http_proxy :0
 ```
 
-## ADB Basics Commands
+## ADB Grundlagen-Befehle
 
-| Command                             | Description                                 |
+| Befehl | Beschreibung |
 | ----------------------------------- | ------------------------------------------- |
-| **adb devices**                     | **Lists connected devices**                 |
-| **adb connect 192.168.2.1**         | **Connects to adb device over network**     |
-| adb root                            | Restarts adbd with root permissions         |
-| adb start-server                    | Starts the adb server                       |
-| adb kill-server                     | Kills the adb server                        |
-| **adb reboot**                      | **Reboots the device**                      |
-| **adb devices -l**                  | **List of devices by product/model**        |
-| **adb -s `<deviceName> <command>`** | **Redirect command to specific device**     |
-| adb –d `<command>`                  | Directs command to only attached USB device |
-| adb –e `<command>`                  | Directs command to only attached emulator   |
+| **adb devices** | **Listet verbundene Geräte auf** |
+| **adb connect 192.168.2.1** | **Verbindet sich mit dem ADB-Gerät über das Netzwerk** |
+| adb root | Startet adbd mit Root-Berechtigungen neu |
+| adb start-server | Startet den adb-Server |
+| adb kill-server | Beendet den adb-Server |
+| **adb reboot** | **Startet das Gerät neu** |
+| **adb devices -l** | **Liste der Geräte nach Produkt/Modell** |
+| **adb -s `<deviceName> <command>`** | **Leitet Befehl an bestimmtes Gerät um** |
+| adb –d `<command>` | Leitet Befehl nur an das angeschlossene USB-Gerät weiter |
+| adb –e `<command>` | Leitet Befehl nur an den angeschlossenen Emulator weiter |
 
-## Logs
+## Protokolle
 
-| Command                                      | Description         |
+| Befehl | Beschreibung |
 | -------------------------------------------- | ------------------- |
-| **adb logcat `[options] [filter] [filter]`** | **View device log** |
-| adb bugreport                                | Print bug reports   |
+| **adb logcat `[options] [filter] [filter]`** | **Geräteprotokoll anzeigen** |
+| adb bugreport | Fehlerberichte ausgeben |
 
-## Permissions
+## Berechtigungen
 
-| Command                          | Description                        |
+| Befehl | Beschreibung |
 | -------------------------------- | ---------------------------------- |
-| adb shell permissions groups     | List permission groups definitions |
-| adb shell list permissions -g -r | List permissions details           |
+| adb shell permissions groups | Definitionen der Berechtigungsgruppen auflisten |
+| adb shell list permissions -g -r | Details der Berechtigungen auflisten |
 
-## Package Installation
+## Paketinstallation
 
-| Command                        | Description                     |
+| Befehl | Beschreibung |
 | ------------------------------ | ------------------------------- |
-| **adb shell install** `<apk>`  | **Install app**                 |
-| **adb shell install `<path>`** | **Install app from phone path** |
-| adb shell install -r `<path>`  | Install app from phone path     |
-| adb shell uninstall `<name>`   | Remove the app                  |
+| **adb shell install** `<apk>` | **App installieren** |
+| **adb shell install `<path>`** | **App vom Telefonpfad installieren** |
+| adb shell install -r `<path>` | App vom Telefonpfad installieren |
+| adb shell uninstall `<name>` | App entfernen |
 
-## Paths
+## Pfade
 
-| Command                                   | Description                               |
+| Befehl | Beschreibung |
 | ----------------------------------------- | ----------------------------------------- |
-| /data/data/`<package name>`/databases     | App databases                             |
-| /data/data/`<package name>`/shared_prefs/ | Shared preferences                        |
-| /mnt/sdcard/Download/                     | Download folder                           |
-| /data/app                                 | Apk installed by user                     |
-| /system/app                               | Pre-installed APK files                   |
-| /mmt/asec                                 | Encrypted apps (App2SD)                   |
-| /mmt/emmc                                 | Internal SD Card                          |
-| /mmt/adcard                               | External/Internal SD Card                 |
-| /mmt/adcard/external_sd                   | External SD Card                          |
+| /data/data/`<package name>`/databases | App-Datenbanken |
+| /data/data/`<package name>`/shared_prefs/ | Gemeinsame Präferenzen |
+| /mnt/sdcard/Download/ | Download-Ordner |
+| /data/app | Vom Benutzer installierte APKs |
+| /system/app | Vorinstallierte APK-Dateien |
+| /mmt/asec | Verschlüsselte Apps (App2SD) |
+| /mmt/emmc | Interne SD-Karte |
+| /mmt/adcard | Externe/Interne SD-Karte |
+| /mmt/adcard/external_sd | Externe SD-Karte |
 | -------                                   | -----------                               |
-| adb shell ls                              | List directory contents                   |
-| adb shell ls -s                           | Print size of each file                   |
-| adb shell ls -R                           | List subdirectories recursively           |
-| **adb shell pm path `<package name>`**    | **Get full path of a package**            |
-| **adb shell pm list packages -f**         | **Lists all the packages and full paths** |
+| adb shell ls | Verzeichnisinhalte auflisten |
+| adb shell ls -s | Größe jeder Datei ausgeben |
+| adb shell ls -R | Unterverzeichnisse rekursiv auflisten |
+| **adb shell pm path `<package name>`** | **Vollständigen Pfad eines Pakets abrufen** |
+| **adb shell pm list packages -f** | **Listet alle Pakete und vollständigen Pfade auf** |
 
-## File Operations
+## Dateioperationen
 
-| Command                         | Description                      |
+| Befehl | Beschreibung |
 | ------------------------------- | -------------------------------- |
 | **adb push `<local> <remote>`** | **Copy file/dir to device**      |
 | **adb pull `<remote> <local>`** | **Copy file/dir from device**    |
-| run-as `<package>` cat `<file>` | Access the private package files |
+| run-as `<package>` cat `<file>` | Auf private Paketdateien zugreifen |
 
-## Phone Info
+## Telefoninformationen
 
 | Command                                           | Description                            |
 | ------------------------------------------------- | -------------------------------------- |
-| adb get-statе                                     | Print device state                     |
-| adb get-serialno                                  | Get the serial number                  |
-| adb shell dumpsys iphonesybinfo                   | Get the IMEI                           |
-| adb shell netstat                                 | List TCP connectivity                  |
-| adb shell pwd                                     | Print current working directory        |
-| adb shell dumpsys battery                         | Battery status                         |
-| adb shell pm list features                        | List phone features                    |
-| adb shell service list                            | List all services                      |
-| adb shell dumpsys activity `<package>/<activity>` | Activity info                          |
-| adb shell ps                                      | Print process status                   |
-| adb shell wm size                                 | Displays the current screen resolution |
+| adb get-statе | Gerätestatus ausgeben |
+| adb get-serialno | Seriennummer abrufen |
+| adb shell dumpsys iphonesybinfo | IMEI abrufen |
+| adb shell netstat | TCP-Konnektivität auflisten |
+| adb shell pwd | Aktuelles Arbeitsverzeichnis ausgeben |
+| adb shell dumpsys battery | Batteriestatus |
+| adb shell pm list features | Telefonfunktionen auflisten |
+| adb shell service list | Alle Dienste auflisten |
+| adb shell dumpsys activity `<package>/<activity>` | Aktivitätsinformationen |
+| adb shell ps | Prozessstatus ausgeben |
+| adb shell wm size | Zeigt die aktuelle Bildschirmauflösung an |
 
-## Package Info
+## Paketinformationen
 
-| Command                            | Description                       |
+| Befehl | Beschreibung |
 | ---------------------------------- | --------------------------------- |
-| adb shell list packages            | Lists package names               |
-| adb shell list packages -r         | Lists package name + path to apks |
-| adb shell list packages -3         | Lists third party package names   |
-| adb shell list packages -s         | Lists only system packages        |
-| adb shell list packages -u         | Lists package names + uninstalled |
-| adb shell dumpsys package packages | Lists info on all apps            |
-| adb shell dump `<name>`            | Lists info on one package         |
-| adb shell path `<package>`         | Path to the apk file              |
+| adb shell list packages | Paketnamen auflisten |
+| adb shell list packages -r | Listet Paketnamen + Pfad zu APKs auf |
+| adb shell list packages -3 | Listet Drittanbieter-Paketnamen auf |
+| adb shell list packages -s | Listet nur Systempakete auf |
+| adb shell list packages -u | Listet Paketnamen + deinstallierte auf |
+| adb shell dumpsys package packages | Listet Informationen zu allen Apps auf |
+| adb shell dump `<name>` | Listet Informationen zu einem Paket auf |
+| adb shell path `<package>` | Pfad zur APK-Datei |
 
-## Device Related Commands
+## Gerätebezogene Befehle
 
-| Command                                                      | Description                              |
+| Befehl | Beschreibung |
 | ------------------------------------------------------------ | ---------------------------------------- |
-| adb reboot recovery                                          | Reboot device into recovery mode         |
-| adb reboot fastboot                                          | Reboot device into recovery mode         |
+| adb reboot recovery | Gerät in den Wiederherstellungsmodus neu starten |
+| adb reboot fastboot | Gerät in den Fastboot-Modus neu starten |
 | adb shell screencap -p "/path/to/screenshot.png"             | Capture screenshot                       |
 | adb shell screenrecord "/path/to/record.mp4"                 | Record device screen                     |
-| adb backup -apk -all -f backup.ab                            | Backup settings and apps                 |
-| adb backup -apk -shared -all -f backup.ab                    | Backup settings, apps and shared storage |
-| adb backup -apk -nosystem -all -f backup.ab                  | Backup only non-system apps              |
-| adb restore backup.ab                                        | Restore a previous backup                |
+| adb backup -apk -all -f backup.ab | Einstellungen und Apps sichern |
+| adb backup -apk -shared -all -f backup.ab | Einstellungen, Apps und freigegebenen Speicher sichern |
+| adb backup -apk -nosystem -all -f backup.ab | Nur Nicht-System-Apps sichern |
+| adb restore backup.ab | Eine frühere Sicherung wiederherstellen |
 | -------                                                      | -----------                              |
-| adb shell am start -a android.intent.action.VIEW -d URL      | Opens URL                                |
+| adb shell am start -a android.intent.action.VIEW -d URL | URL öffnen |
 | adb shell am start -t image/\* -a android.intent.action.VIEW | Opens gallery                            |
 
 <!-- appendices -->

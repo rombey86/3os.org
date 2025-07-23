@@ -1,9 +1,9 @@
 # Project information
-site_name: 3os
+site_name: 3os (Deutsch)
 site_url: https://3os.org
 site_author: Stas Yakobov
 site_description: >-
-  Collocation of technical documentation and guides for devops, developers, pentesters, systems administrators and other IT professionals.
+  Sammlung technischer Dokumentationen und Anleitungen für DevOps, Entwickler, Pentester, Systemadministratoren und andere IT-Experten.
 repo_url: https://github.com/fire1ce/3os.org
 repo_name: fire1ce/3os.org
 edit_uri: edit/main/docs/
@@ -12,7 +12,7 @@ edit_uri: edit/main/docs/
 theme:
   name: material
   highlightjs: true
-  language: en
+  language: de
   font:
     false
     # text: Rubik
@@ -42,13 +42,13 @@ theme:
       primary: teal
       toggle:
         icon: material/toggle-switch-off-outline
-        name: Switch to dark mode
+        name: In den dunklen Modus wechseln
     - media: '(prefers-color-scheme: dark)'
       scheme: slate
       primary: teal
       toggle:
         icon: material/toggle-switch
-        name: Switch to light mode
+        name: In den hellen Modus wechseln
 
 # Custom theme configuration
 extra_css:
@@ -58,7 +58,7 @@ extra_css:
 # Plugins
 plugins:
   - search:
-      lang: 'en'
+      lang: 'de'
   - exclude-search:
       exclude:
         - blog.md
@@ -107,7 +107,7 @@ markdown_extensions:
   - md_in_html
   - tables
   - toc:
-      title: On This Page
+      title: Auf dieser Seite
       permalink: true
       toc_depth: '3'
       separator: '-'
